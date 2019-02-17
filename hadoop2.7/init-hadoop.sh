@@ -1,0 +1,1 @@
+cd /opt/module/hadoop-2.7.2 && hdfs namenode -format && hadoop-daemon.sh start namenode && hadoop-daemon.sh start datanode
