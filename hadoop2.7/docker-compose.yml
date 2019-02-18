@@ -3,13 +3,39 @@ services:
   hadoop001:
     image: lasbun/hadoop2.7.2:0.0.1
     ports:
-      - "10022:22"
-      - "50710:50070"
-      - "18088:8088"
+      - "10021:22"
+      - "50711:50070"
+      - "18081:8088"
     hostname: hadoop001
     networks: 
       static-network:
-        ipv4_address: 10.5.0.101
+        ipv4_address: 10.5.0.1
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    
+  hadoop002:
+    image: lasbun/hadoop2.7.2:0.0.1
+    ports:
+      - "10022:22"
+      - "50712:50070"
+      - "18082:8088"
+    hostname: hadoop002
+    networks: 
+      static-network:
+        ipv4_address: 10.5.0.2
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
+  hadoop003:
+    image: lasbun/hadoop2.7.2:0.0.1
+    ports:
+      - "10023:22"
+      - "50713:50070"
+      - "18083:8088"
+    hostname: hadoop003
+    networks: 
+      static-network:
+        ipv4_address: 10.5.0.3
     volumes:
       - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
 

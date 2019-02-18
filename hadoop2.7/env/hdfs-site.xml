@@ -1,4 +1,5 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <!--
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -12,18 +13,13 @@
   See the License for the specific language governing permissions and
   limitations under the License. See accompanying LICENSE file.
 -->
+
+<!-- Put site-specific property overrides in this file. -->
+
 <configuration>
-
-<!-- Site specific YARN configuration properties -->
-<!-- reducer获取数据的方式 -->
-<property>
- <name>yarn.nodemanager.aux-services</name>
- <value>mapreduce_shuffle</value>
-</property>
-
-<!-- 指定YARN的ResourceManager的地址 -->
-<property>
-<name>yarn.resourcemanager.hostname</name>
-<value>hadoop002</value>
-</property>
+  <property>
+    <name>dfs.namenode.secondary.http-address</name>
+      <!-- 指定 secondary 节点主机-->
+      <value>hadoop003:50070</value>
+  </property>
 </configuration>

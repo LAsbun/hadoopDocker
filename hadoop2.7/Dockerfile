@@ -40,6 +40,9 @@ RUN sed -i 's/${JAVA_HOME}/\/opt\/module\/jdk1.8.0_131/g' /opt/module/hadoop-2.7
 RUN rm /opt/module/hadoop-2.7.2/etc/hadoop/core-site.xml
 COPY ./env/core-site.xml /opt/module/hadoop-2.7.2/etc/hadoop/
 
+RUN rm /opt/module/hadoop-2.7.2/etc/hadoop/hdfs-site.xml
+COPY ./env/hdfs-site.xml /opt/module/hadoop-2.7.2/etc/hadoop/
+
 # yarn
 RUN rm /opt/module/hadoop-2.7.2/etc/hadoop/yarn-site.xml
 COPY ./env/yarn-site.xml /opt/module/hadoop-2.7.2/etc/hadoop/
@@ -53,9 +56,9 @@ COPY ./env/mapred-site.xml /opt/module/hadoop-2.7.2/etc/hadoop/
 RUN rm /opt/module/hadoop-2.7.2/etc/hadoop/mapred-env.sh
 COPY ./env/mapred-env.sh /opt/module/hadoop-2.7.2/etc/hadoop/
 
-RUN echo -e "172.25.0.101	hadoop001" >> /etc/hosts
-RUN echo -e "172.25.0.102	hadoop002" >> /etc/hosts
-RUN echo -e "172.25.0.103	hadoop003" >> /etc/hosts
+RUN echo -e "172.25.0.1	hadoop001" >> /etc/hosts
+RUN echo -e "172.25.0.2	hadoop002" >> /etc/hosts
+RUN echo -e "172.25.0.3	hadoop003" >> /etc/hosts
 # RUN rm /opt/software/hadoop-2.7.2.tar.gz
 
 # RUN rm /opt/software/jdk-8u131-linux-x64.tar.gz
