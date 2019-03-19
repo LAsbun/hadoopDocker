@@ -6,6 +6,8 @@ services:
       - "10021:22"
       - "50711:50070"
       - "18081:8088"
+      - "8021:8020"
+      - "8041:8042"
     hostname: hadoop001
     networks: 
       static-network:
@@ -19,6 +21,7 @@ services:
       - "10022:22"
       - "50712:50070"
       - "18082:8088"
+      - "8022:8020"
     hostname: hadoop002
     networks: 
       static-network:
@@ -32,6 +35,7 @@ services:
       - "10023:22"
       - "50713:50070"
       - "18083:8088"
+      - "8023:8020"
     hostname: hadoop003
     networks: 
       static-network:

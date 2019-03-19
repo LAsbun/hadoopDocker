@@ -56,10 +56,18 @@ COPY ./env/mapred-site.xml /opt/module/hadoop-2.7.2/etc/hadoop/
 RUN rm /opt/module/hadoop-2.7.2/etc/hadoop/mapred-env.sh
 COPY ./env/mapred-env.sh /opt/module/hadoop-2.7.2/etc/hadoop/
 
+RUN rm /opt/module/hadoop-2.7.2/etc/hadoop/slaves
+COPY ./env/slaves /opt/module/hadoop-2.7.2/etc/hadoop/
+
 RUN echo -e "172.25.0.1	hadoop001" >> /etc/hosts
 RUN echo -e "172.25.0.2	hadoop002" >> /etc/hosts
 RUN echo -e "172.25.0.3	hadoop003" >> /etc/hosts
-# RUN rm /opt/software/hadoop-2.7.2.tar.gz
 
-# RUN rm /opt/software/jdk-8u131-linux-x64.tar.gz
+COPY ./env/xcall.sh /usr/local/bin/
+COPY ./env/xsrnc.sh /usr/local/bin/
 
+RUN chmod +x /usr/local/bin/xcall.sh
+
+RUN chmod +x /usr/local/bin/xsrnc.sh
+
+RUN ssh-keygen -q -t rsa -N '' -f /root/.ssh/id_rsa
